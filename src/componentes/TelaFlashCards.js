@@ -3,6 +3,7 @@ import Cards from "./Cards";
 
 export default function TelaFlashCards() {
   const [respondidas, setRespondidas] = React.useState(0);
+  const [icons, setIcons] = React.useState([]);
   const cards = [
     {
       pergunta: "O que é JSX?",
@@ -27,7 +28,7 @@ export default function TelaFlashCards() {
     <>
       <div className="tela2">
         <header>
-          <img src="./assets/img/logo.png" alt="logo"></img>
+          <img src="./assets/img/logo-pequeno.png" alt="logo"></img>
           <h1>ZapRecall</h1>
         </header>
         <main>
@@ -38,13 +39,28 @@ export default function TelaFlashCards() {
                 index={index}
                 pergunta={card.pergunta}
                 resposta={card.resposta}
-                callback={() => setRespondidas(respondidas + 1)}
+                callback={(icon) => {
+                  setRespondidas(respondidas + 1);
+                  setIcons([...icons, icon]);
+                }}
               />
             ))}
           </div>
         </main>
         <footer>
-          <p> {respondidas}/4 concluidos </p>
+          <div>
+            <p> {respondidas}/4 concluidos </p>
+            <div className="icones-footer">
+              {icons.map((icon) => {
+                let css;
+                if (icon === "close-circle") css = "resp-nao";
+                if (icon === "help-circle") css = "resp-quase";
+                if (icon === "checkmark-circle") css = "resp-zap";
+
+                return <ion-icon class={css} name={icon}></ion-icon>;
+              })}
+            </div>
+          </div>
         </footer>
       </div>
     </>
