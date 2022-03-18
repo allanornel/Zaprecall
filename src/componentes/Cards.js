@@ -1,4 +1,5 @@
 import React from "react";
+import setinha from "../assets/img/setinha.png";
 
 export default function Cards({ pergunta, resposta, index, callback }) {
   const [estado, setEstado] = React.useState(0);
@@ -34,11 +35,7 @@ export default function Cards({ pergunta, resposta, index, callback }) {
         <div className="pergunta-costa">
           <div className="pergunta-costa-intro">
             <p>{pergunta}</p>
-            <img
-              src="./assets/img/setinha.png"
-              alt=""
-              onClick={() => setEstado(estado + 1)}
-            />
+            <img src={setinha} alt="" onClick={() => setEstado(estado + 1)} />
           </div>
         </div>
       </div>

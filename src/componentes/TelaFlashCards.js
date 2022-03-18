@@ -1,5 +1,8 @@
 import React from "react";
 import Cards from "./Cards";
+import Header from "./Header";
+import sad from "../assets/img/sad.png";
+import party from "../assets/img/party.png";
 
 export default function TelaFlashCards() {
   const [respondidas, setRespondidas] = React.useState(0);
@@ -39,7 +42,7 @@ export default function TelaFlashCards() {
       if (icons.includes("close-circle")) {
         return (
           <>
-            <img src="./assets/img/sad.png" alt="" />
+            <img src={sad} alt="" />
             <span> PUTZ!</span>
             <p>Ainda faltaram alguns.. </p>
             <p>Mas não desanime!</p>
@@ -48,7 +51,7 @@ export default function TelaFlashCards() {
       } else {
         return (
           <>
-            <img src="./assets/img/party.png" alt="" />
+            <img src={party} alt="" />
             <span> PARABÉNS!</span>
             <p>Você não esqueceu de nenhum flashcard!</p>
           </>
@@ -60,10 +63,7 @@ export default function TelaFlashCards() {
   return (
     <>
       <div className="tela2">
-        <header>
-          <img src="./assets/img/logo-pequeno.png" alt="logo"></img>
-          <h1>ZapRecall</h1>
-        </header>
+        <Header />
         <main>
           <div className="perguntas">
             {cards.map((card, index) => (

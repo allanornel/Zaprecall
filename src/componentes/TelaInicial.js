@@ -1,11 +1,13 @@
 import React from "react";
 
+import logo from "../assets/img/logo.png";
+
 export default function TelaInicial({ callback }) {
   return (
     <>
       <div className="tela1">
         <div className="titulo-inicio">
-          <img src="./assets/img/logo.png" alt="logo"></img>
+          <img src={logo} alt="logo"></img>
           <h1>ZapRecall</h1>
         </div>
 
