@@ -48,7 +48,7 @@ export default function TelaFlashCards() {
       } else {
         return (
           <>
-            <img src="./assets/img/sad.png" alt="" />
+            <img src="./assets/img/party.png" alt="" />
             <span> PARABÉNS!</span>
             <p>Você não esqueceu de nenhum flashcard!</p>
           </>
