@@ -24,6 +24,39 @@ export default function TelaFlashCards() {
     },
   ];
 
+  function randomCards(cards) {
+    cards.sort(comparador);
+  }
+  function comparador() {
+    return Math.random() - 0.5;
+  }
+  randomCards(cards);
+
+  function checaRespondidas() {
+    if (respondidas !== 4) {
+      return <p>{respondidas}/4 concluidos</p>;
+    } else {
+      if (icons.includes("close-circle")) {
+        return (
+          <>
+            <img src="./assets/img/sad.png" alt="" />
+            <span> PUTZ!</span>
+            <p>Ainda faltaram alguns.. </p>
+            <p>Mas não desanime!</p>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <img src="./assets/img/sad.png" alt="" />
+            <span> PARABÉNS!</span>
+            <p>Você não esqueceu de nenhum flashcard!</p>
+          </>
+        );
+      }
+    }
+  }
+
   return (
     <>
       <div className="tela2">
@@ -49,15 +82,17 @@ export default function TelaFlashCards() {
         </main>
         <footer>
           <div>
-            <p> {respondidas}/4 concluidos </p>
+            {checaRespondidas()}
             <div className="icones-footer">
-              {icons.map((icon) => {
+              {icons.map((icon, index) => {
                 let css;
                 if (icon === "close-circle") css = "resp-nao";
                 if (icon === "help-circle") css = "resp-quase";
                 if (icon === "checkmark-circle") css = "resp-zap";
 
-                return <ion-icon class={css} name={icon}></ion-icon>;
+                return (
+                  <ion-icon key={index} class={css} name={icon}></ion-icon>
+                );
               })}
             </div>
           </div>
