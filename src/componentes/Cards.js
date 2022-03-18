@@ -1,17 +1,11 @@
 import React from "react";
 
 export default function Cards(props) {
-  const { pergunta, resposta, index } = props;
+  const { pergunta, resposta, index, callback } = props;
   const [estado, setEstado] = React.useState(0);
-
   const [respBotao, setRespBotao] = React.useState();
-  console.log(index);
-  //   function clickResposta(resp) {
-  //     resp = "pergunta " + resp;
-  //     setEstado(estado + 1);
-  //     // setRespBotao(resp);
-  //   }
 
+  //   console.log(callback);
   if (estado === 0) {
     return (
       <div className="pergunta">
@@ -81,6 +75,7 @@ export default function Cards(props) {
   if (estado === 3) {
     const css = `pergunta ${respBotao}`;
     let icon;
+    callback();
     if (respBotao === "resp-nao") icon = "close-circle";
     if (respBotao === "resp-quase") icon = "help-circle";
     if (respBotao === "resp-zap") icon = "checkmark-circle";

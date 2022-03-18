@@ -2,7 +2,7 @@ import React from "react";
 import Cards from "./Cards";
 
 export default function TelaFlashCards() {
-  const [pergRespondidas, setPergRespondidas] = React.useState(0);
+  const [respondidas, setRespondidas] = React.useState(0);
   const cards = [
     {
       pergunta: "O que é JSX?",
@@ -34,15 +34,17 @@ export default function TelaFlashCards() {
           <div className="perguntas">
             {cards.map((card, index) => (
               <Cards
+                key={index}
                 index={index}
                 pergunta={card.pergunta}
                 resposta={card.resposta}
+                callback={() => setRespondidas(respondidas + 1)}
               />
             ))}
           </div>
         </main>
         <footer>
-          <p> {pergRespondidas}/4 concluidos </p>
+          <p> {respondidas}/4 concluidos </p>
         </footer>
       </div>
     </>
