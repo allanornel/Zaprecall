@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import sad from "../assets/img/sad.png";
 import party from "../assets/img/party.png";
 
-export default function TelaFlashCards() {
+export default function TelaFlashCards({ deck }) {
   const [respondidas, setRespondidas] = React.useState(0);
   const [icons, setIcons] = React.useState([]);
 
@@ -43,6 +43,7 @@ export default function TelaFlashCards() {
           setRespondidas={setRespondidas}
           setIcons={setIcons}
           icons={icons}
+          deck={deck}
         />
         <Footer icons={icons} checaRespondidas={checaRespondidas} />
       </div>

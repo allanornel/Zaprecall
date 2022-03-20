@@ -10,8 +10,21 @@ export default function TelaInicial({ callback }) {
           <img src={logo} alt="logo"></img>
           <h1>ZapRecall</h1>
         </div>
-
-        <div className="inicio-recall" onClick={() => callback()}>
+        <select required name="deck" id="deck">
+          <option value="escolha">Escolha seu Deck</option>
+          <option value="deck1">Deck 1</option>
+          <option value="deck2">Deck 2</option>
+        </select>
+        <div
+          className="inicio-recall"
+          onClick={() =>
+            callback(
+              document.getElementById("deck").options[
+                document.getElementById("deck").selectedIndex
+              ].value
+            )
+          }
+        >
           <p>Iniciar Recall!</p>
         </div>
       </div>

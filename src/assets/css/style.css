@@ -29,6 +29,21 @@ body {
   font-size: 36px;
   line-height: 31px;
   color: #ffffff;
+  margin-bottom: 73px;
+}
+
+.tela1 select {
+  width: 246px;
+  height: 43px;
+  background: #ffffff;
+  border-radius: 5px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #adadad;
+  margin-bottom: 18px;
 }
 
 .inicio-recall {
@@ -40,7 +55,6 @@ body {
   border-radius: 5px;
   color: #d70900;
   text-align: center;
-  margin-top: 73px;
 }
 
 .inicio-recall p {

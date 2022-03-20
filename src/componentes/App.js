@@ -7,17 +7,23 @@ import "../assets/css/style.css";
 
 export default function App() {
   const [tela2, setTela2] = React.useState(false);
+  const [deckSelecionado, setDeckSelecionado] = React.useState(false);
 
-  if (!tela2) {
+  if (!tela2 || deckSelecionado === "escolha") {
     return (
       <>
-        <TelaInicial callback={() => setTela2(true)} />
+        <TelaInicial
+          callback={(deck) => {
+            setTela2(true);
+            setDeckSelecionado(deck);
+          }}
+        />
       </>
     );
   } else {
     return (
       <>
-        <TelaFlashCards />
+        <TelaFlashCards deck={deckSelecionado} />
       </>
     );
   }
